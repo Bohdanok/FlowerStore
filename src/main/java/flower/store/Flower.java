@@ -5,14 +5,11 @@ import lombok.Setter;
 
 
 
-@Setter
+@Setter@Getter
 public class Flower {
-    @Getter
     private double sepalLength;
     private FlowerColor color;
-    @Getter
     private double price;
-    @Getter
     private FlowerType flowerType;
 
     public String getColor() {
