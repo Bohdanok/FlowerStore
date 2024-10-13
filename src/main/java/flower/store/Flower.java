@@ -17,6 +17,7 @@ public class Flower {
         this.spec = new FlowerSpec(color, sepalLength, type);
     }
 
+
     public Flower(){
         this.spec = new FlowerSpec();
         this.price = 0;
