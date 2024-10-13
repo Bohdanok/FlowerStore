@@ -12,13 +12,13 @@ public class Flower {
     private FlowerSpec spec;
 
     public Flower(FlowerColor color, int sepalLength, int price,
-    FlowerType type){
+    FlowerType type) {
         this.price = price;
         this.spec = new FlowerSpec(color, sepalLength, type);
     }
 
 
-    public Flower(){
+    public Flower() {
         this.spec = new FlowerSpec();
         this.price = 0;
     }
@@ -31,11 +31,11 @@ public class Flower {
     public String getColor() {
         return spec.getColor().toString();
     }
-    public void setColor(FlowerColor color){
+    public void setColor(FlowerColor color) {
         this.spec.setColor(color);
     }
 
-    public boolean match(Flower other){
+    public boolean match(Flower other) {
         return spec.match(other.spec);
     }
 

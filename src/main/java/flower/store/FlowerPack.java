@@ -15,11 +15,16 @@ public class FlowerPack {
         this.quantity = count;
     }
 
+    public FlowerPack(FlowerPack flowerPack) {
+        this.flower = flowerPack.getFlower();
+        this.quantity = flowerPack.getQuantity();
+    }
+
     public double getPrice() {
         return flower.getPrice() * quantity;
     }
 
-    public boolean match(FlowerPack other){
+    public boolean match(FlowerPack other) {
         return flower.match(other.flower);
     }
 
