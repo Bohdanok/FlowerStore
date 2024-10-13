@@ -44,13 +44,13 @@ public class StoreTest {
         FlowerSpec wantedSpec = new FlowerSpec(
             FlowerColor.BLUE, FLOWER_SIZE_EIGHT, FlowerType.CHAMOMILE);
 
-        Flower rose = new Flower(
+        Flower rosetwo = new Flower(
             FlowerColor.RED, FLOWER_SIZE_TEN, 2, FlowerType.ROSE);
-        Flower tulip = new Flower(
+        Flower tuliptwo = new Flower(
             FlowerColor.BLUE, FLOWER_SIZE_FIVE, QUANTITY_TEN, FlowerType.TULIP);
 
-        FlowerPack rosePack = new FlowerPack(rose, QUANTITY_FIVE); 
-        FlowerPack tulipPack = new FlowerPack(tulip, QUANTITY_TEN); 
+        FlowerPack rosePack = new FlowerPack(rosetwo, QUANTITY_FIVE); 
+        FlowerPack tulipPack = new FlowerPack(tuliptwo, QUANTITY_TEN); 
 
         FlowerBucket flowerBucket = new FlowerBucket();
         flowerBucket.add(rosePack);
