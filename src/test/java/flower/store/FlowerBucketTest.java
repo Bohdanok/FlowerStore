@@ -6,11 +6,6 @@ import org.junit.jupiter.api.Assertions;
 
 import java.util.Random;
 
-import ua.edu.ucu.apps.flowers.FlowerBucket;
-import ua.edu.ucu.apps.flowers.FlowerPack;
-import ua.edu.ucu.apps.flowers.Flower;
-;
-
 public class FlowerBucketTest {
     private static final Random RANDOM_GENERATOR = new Random();
     private static final int MAX_QUANTITY = 1000;
