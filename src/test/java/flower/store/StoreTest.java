@@ -19,7 +19,7 @@ public class StoreTest {
         Flower rose = new Flower(
             FlowerColor.RED, FLOWER_SIZE_TEN, 2, FlowerType.ROSE);
         Flower tulip = new Flower(
-            FlowerColor.BLUE, FLOWER_SIZE_FIVE, QUANTITY_FIVE, FlowerType.TULIP);
+        FlowerColor.BLUE, FLOWER_SIZE_FIVE, QUANTITY_FIVE, FlowerType.TULIP);
 
         FlowerPack rosePack = new FlowerPack(rose, QUANTITY_FIVE);
         FlowerPack tulipPack = new FlowerPack(tulip, QUANTITY_TEN);
