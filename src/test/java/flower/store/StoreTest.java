@@ -11,13 +11,14 @@ public class StoreTest {
     private static final int QUANTITY_FIVE = 5;
     private static final int QUANTITY_TEN = 10;
 
-    private Store setupStore(Flower flower1, int quantity1, Flower flower2, int quantity2) {
-        FlowerPack pack1 = new FlowerPack(flower1, quantity1);
-        FlowerPack pack2 = new FlowerPack(flower2, quantity2);
+    private Store setupStore(Flower flowerone, int quantityone,
+     Flower flowertwo, int quantitytwo) {
+        FlowerPack packone = new FlowerPack(flowerone, quantityone);
+        FlowerPack packtwo = new FlowerPack(flowertwo, quantitytwo);
 
         FlowerBucket flowerBucket = new FlowerBucket();
-        flowerBucket.add(pack1);
-        flowerBucket.add(pack2);
+        flowerBucket.add(packone);
+        flowerBucket.add(packtwo);
 
         Store store = new Store();
         store.add(flowerBucket);
@@ -33,7 +34,8 @@ public class StoreTest {
         Flower rose = new Flower(
             FlowerColor.RED, FLOWER_SIZE_TEN, 2, FlowerType.ROSE);
         Flower tulip = new Flower(
-            FlowerColor.BLUE, FLOWER_SIZE_FIVE, QUANTITY_FIVE, FlowerType.TULIP);
+            FlowerColor.BLUE, FLOWER_SIZE_FIVE, QUANTITY_FIVE, 
+            FlowerType.TULIP);
 
         Store store = setupStore(rose, QUANTITY_FIVE, tulip, QUANTITY_TEN);
 
@@ -42,7 +44,8 @@ public class StoreTest {
         Assertions.assertEquals(
             1, result.size(), "Should find one matching flower pack");
         Assertions.assertTrue(
-            new FlowerPack(rose, QUANTITY_FIVE).match(result.get(0)), "Should match the rose pack");
+            new FlowerPack(rose, QUANTITY_FIVE).match(result.get(0)),
+             "Should match the rose pack");
     }
 
     @Test
