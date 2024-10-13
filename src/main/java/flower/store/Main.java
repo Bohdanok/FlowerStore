@@ -7,13 +7,14 @@ public class Main {
     private static final int EIGHT = 8;
 
     public static void main(String[] args) {
-        Flower rose = new Flower(FlowerColor.RED, EIGHTY, HUNDRED, FlowerType.ROSE);
-        FlowerPack flowerPack1 = new FlowerPack(rose, TEN);
-        FlowerPack flowerPack2 = new FlowerPack(rose, EIGHT);
+        Flower rose = new Flower(FlowerColor.RED, EIGHTY, HUNDRED, 
+        FlowerType.ROSE);
+        FlowerPack flowerPackone = new FlowerPack(rose, TEN);
+        FlowerPack flowerPacktwo = new FlowerPack(rose, EIGHT);
         
         FlowerBucket flowerBucket = new FlowerBucket();
-        flowerBucket.add(flowerPack1);
-        flowerBucket.add(flowerPack2);
+        flowerBucket.add(flowerPackone);
+        flowerBucket.add(flowerPacktwo);
 
         System.out.println(flowerBucket.getPrice());
         
