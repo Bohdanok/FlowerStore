@@ -11,6 +11,20 @@ public class StoreTest {
     private static final int QUANTITY_FIVE = 5;
     private static final int QUANTITY_TEN = 10;
 
+    private Store setupStore(Flower flower1, int quantity1, Flower flower2, int quantity2) {
+        FlowerPack pack1 = new FlowerPack(flower1, quantity1);
+        FlowerPack pack2 = new FlowerPack(flower2, quantity2);
+
+        FlowerBucket flowerBucket = new FlowerBucket();
+        flowerBucket.add(pack1);
+        flowerBucket.add(pack2);
+
+        Store store = new Store();
+        store.add(flowerBucket);
+
+        return store;
+    }
+
     @Test
     public void testSearchFlowerMatchFound() {
         FlowerSpec wantedSpec = new FlowerSpec(
@@ -19,24 +33,16 @@ public class StoreTest {
         Flower rose = new Flower(
             FlowerColor.RED, FLOWER_SIZE_TEN, 2, FlowerType.ROSE);
         Flower tulip = new Flower(
-        FlowerColor.BLUE, FLOWER_SIZE_FIVE, QUANTITY_FIVE, FlowerType.TULIP);
+            FlowerColor.BLUE, FLOWER_SIZE_FIVE, QUANTITY_FIVE, FlowerType.TULIP);
 
-        FlowerPack rosePack = new FlowerPack(rose, QUANTITY_FIVE);
-        FlowerPack tulipPack = new FlowerPack(tulip, QUANTITY_TEN);
-
-        FlowerBucket flowerBucket = new FlowerBucket();
-        flowerBucket.add(rosePack);
-        flowerBucket.add(tulipPack);
-
-        Store store = new Store();
-        store.add(flowerBucket);
+        Store store = setupStore(rose, QUANTITY_FIVE, tulip, QUANTITY_TEN);
 
         ArrayList<FlowerPack> result = store.search(wantedSpec);
 
         Assertions.assertEquals(
             1, result.size(), "Should find one matching flower pack");
-        Assertions.assertEquals(
-            rosePack, result.get(0), "Should match the rose pack");
+        Assertions.assertTrue(
+            new FlowerPack(rose, QUANTITY_FIVE).match(result.get(0)), "Should match the rose pack");
     }
 
     @Test
@@ -44,20 +50,12 @@ public class StoreTest {
         FlowerSpec wantedSpec = new FlowerSpec(
             FlowerColor.BLUE, FLOWER_SIZE_EIGHT, FlowerType.CHAMOMILE);
 
-        Flower rosetwo = new Flower(
+        Flower rose = new Flower(
             FlowerColor.RED, FLOWER_SIZE_TEN, 2, FlowerType.ROSE);
-        Flower tuliptwo = new Flower(
+        Flower tulip = new Flower(
             FlowerColor.BLUE, FLOWER_SIZE_FIVE, QUANTITY_TEN, FlowerType.TULIP);
 
-        FlowerPack rosePack = new FlowerPack(rosetwo, QUANTITY_FIVE); 
-        FlowerPack tulipPack = new FlowerPack(tuliptwo, QUANTITY_TEN); 
-
-        FlowerBucket flowerBucket = new FlowerBucket();
-        flowerBucket.add(rosePack);
-        flowerBucket.add(tulipPack);
-
-        Store store = new Store();
-        store.add(flowerBucket);
+        Store store = setupStore(rose, QUANTITY_FIVE, tulip, QUANTITY_TEN);
 
         ArrayList<FlowerPack> result = store.search(wantedSpec);
 
@@ -76,6 +74,6 @@ public class StoreTest {
 
         Assertions.assertTrue(
             result.isEmpty(),
-             "No matching flower pack should be found in an empty store");
+            "No matching flower pack should be found in an empty store");
     }
 }
